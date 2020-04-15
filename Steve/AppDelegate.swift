@@ -17,12 +17,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
 
       let dataDict:[String: String] = ["token": fcmToken]
       NotificationCenter.default.post(name: Notification.Name("FCMToken"), object: nil, userInfo: dataDict)
-      // TODO: If necessary send token to application server.
-      // Note: This callback is fired at each app startup and whenever a new token is generated.
     }
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
         FirebaseApp.configure()
         
         Messaging.messaging().delegate = self
@@ -32,9 +29,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
             print("Error fetching remote instance ID: \(error)")
           } else if let result = result {
             print("Remote instance ID token: \(result.token)")
-//            self.instanceIDTokenMessage.text  = "Remote InstanceID token: \(result.token)"
-            Messaging.messaging().subscribe(toTopic: "11") { error in
-              print("Subscribed to 11 topic")
+            Messaging.messaging().subscribe(toTopic: "108032329945935107776") { error in
+              print("Subscribed to 108032329945935107776 topic")
             }
           }
         }
@@ -55,9 +51,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
         Messaging.messaging().apnsToken = deviceToken
         
-        Messaging.messaging().subscribe(toTopic: "11") { error in
-            print("Subscribed to 11 topic")
-            print(error)
+        Messaging.messaging().subscribe(toTopic: "108032329945935107776") { error in
+            print("Subscribed to 108032329945935107776 topic")
         }
     }
     
@@ -99,4 +94,3 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
 //        completionHandler([.badge,.sound,.alert])
     }
 }
-
