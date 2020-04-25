@@ -11,8 +11,6 @@ import Foundation
 
 extension Color {
     static var theme: Color {
-        return Color.init(red: 76/255,
-                          green: 139/255,
-                          blue: 245/255)
+        return Color.init(.theme)
     }
 }

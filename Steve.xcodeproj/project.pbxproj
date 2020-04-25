@@ -15,6 +15,7 @@
 		426DEF4624475EBB0048EF49 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 426DEF4524475EBB0048EF49 /* Preview Assets.xcassets */; };
 		426DEF4924475EBB0048EF49 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 426DEF4724475EBB0048EF49 /* LaunchScreen.storyboard */; };
 		4286273E2447637700534988 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4286273D2447637700534988 /* GoogleService-Info.plist */; };
+		563333672455004300CB72A1 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 563333662455004300CB72A1 /* UIColor.swift */; };
 		56C4A74D245482200026FC1A /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 56C4A74C245482200026FC1A /* Podfile */; };
 		56C4A74F245494240026FC1A /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56C4A74E245494240026FC1A /* MainView.swift */; };
 		56C4A751245496CE0026FC1A /* AccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56C4A750245496CE0026FC1A /* AccountView.swift */; };
@@ -39,6 +40,7 @@
 		4286273D2447637700534988 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		4286273F244778E800534988 /* Steve.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Steve.entitlements; sourceTree = "<group>"; };
 		55E88DE4097AA4747BBDE861 /* Pods-Steve.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Steve.debug.xcconfig"; path = "Target Support Files/Pods-Steve/Pods-Steve.debug.xcconfig"; sourceTree = "<group>"; };
+		563333662455004300CB72A1 /* UIColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		56C4A74C245482200026FC1A /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; };
 		56C4A74E245494240026FC1A /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		56C4A750245496CE0026FC1A /* AccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountView.swift; sourceTree = "<group>"; };
@@ -117,6 +119,7 @@
 			isa = PBXGroup;
 			children = (
 				56C4A7532454984F0026FC1A /* Color.swift */,
+				563333662455004300CB72A1 /* UIColor.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -325,6 +328,7 @@
 				56C4A7542454984F0026FC1A /* Color.swift in Sources */,
 				56CD65F324539A7C003CC631 /* Localizer.swift in Sources */,
 				56CD65FA24544464003CC631 /* ContentViewModel.swift in Sources */,
+				563333672455004300CB72A1 /* UIColor.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
