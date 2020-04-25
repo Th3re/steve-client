@@ -12,7 +12,7 @@ struct CurrentLocationView: View {
     @ObservedObject var model: CurrentLocationViewModel = CurrentLocationViewModel()
     var body: some View {
         ZStack {
-            Color.init(red: 76/255, green: 139/255, blue: 245/255).edgesIgnoringSafeArea(.all)
+            Color.theme
             VStack {
                 Text("Current Location")
                     .foregroundColor(.white)
