@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4215FFE62454C901009C5336 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4215FFE52454C901009C5336 /* SignInViewController.swift */; };
 		426DEF3D24475EB50048EF49 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 426DEF3C24475EB50048EF49 /* AppDelegate.swift */; };
 		426DEF3F24475EB50048EF49 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 426DEF3E24475EB50048EF49 /* SceneDelegate.swift */; };
 		426DEF4124475EB50048EF49 /* CurrentLocationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 426DEF4024475EB50048EF49 /* CurrentLocationView.swift */; };
@@ -26,6 +27,7 @@
 /* Begin PBXFileReference section */
 		1926E473CE4BA6F5B8D57D5D /* Pods-Steve.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Steve.release.xcconfig"; path = "Target Support Files/Pods-Steve/Pods-Steve.release.xcconfig"; sourceTree = "<group>"; };
 		3FCDB43A5AA773581747E6A2 /* Pods_Steve.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Steve.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4215FFE52454C901009C5336 /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		426DEF3924475EB50048EF49 /* Steve.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Steve.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		426DEF3C24475EB50048EF49 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		426DEF3E24475EB50048EF49 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -57,6 +59,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4215FFE32454C8D8009C5336 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				4215FFE52454C901009C5336 /* SignInViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
 		426DEF3024475EB50048EF49 = {
 			isa = PBXGroup;
 			children = (
@@ -79,6 +89,7 @@
 		426DEF3B24475EB50048EF49 /* Steve */ = {
 			isa = PBXGroup;
 			children = (
+				4215FFE32454C8D8009C5336 /* ViewControllers */,
 				56C4A7522454983F0026FC1A /* Extensions */,
 				56CD65FB2454692D003CC631 /* Model */,
 				56CD65F824544456003CC631 /* ViewModels */,
@@ -182,6 +193,7 @@
 				426DEF3624475EB50048EF49 /* Frameworks */,
 				426DEF3724475EB50048EF49 /* Resources */,
 				F52D9D9A7240A010F092404D /* [CP] Embed Pods Frameworks */,
+				371C6FDEAB847CD3631E1762 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -241,6 +253,23 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		371C6FDEAB847CD3631E1762 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Steve/Pods-Steve-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Steve/Pods-Steve-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Steve/Pods-Steve-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		717048337F1638563D8C5114 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -292,6 +321,7 @@
 				426DEF3F24475EB50048EF49 /* SceneDelegate.swift in Sources */,
 				426DEF4124475EB50048EF49 /* CurrentLocationView.swift in Sources */,
 				56C4A751245496CE0026FC1A /* AccountView.swift in Sources */,
+				4215FFE62454C901009C5336 /* SignInViewController.swift in Sources */,
 				56C4A7542454984F0026FC1A /* Color.swift in Sources */,
 				56CD65F324539A7C003CC631 /* Localizer.swift in Sources */,
 				56CD65FA24544464003CC631 /* ContentViewModel.swift in Sources */,
