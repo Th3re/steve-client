@@ -14,6 +14,7 @@
 		426DEF4624475EBB0048EF49 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 426DEF4524475EBB0048EF49 /* Preview Assets.xcassets */; };
 		426DEF4924475EBB0048EF49 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 426DEF4724475EBB0048EF49 /* LaunchScreen.storyboard */; };
 		4286273E2447637700534988 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4286273D2447637700534988 /* GoogleService-Info.plist */; };
+		56C4A74D245482200026FC1A /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 56C4A74C245482200026FC1A /* Podfile */; };
 		56CD65F324539A7C003CC631 /* Localizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56CD65F224539A7C003CC631 /* Localizer.swift */; };
 		56CD65FA24544464003CC631 /* ContentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56CD65F924544464003CC631 /* ContentViewModel.swift */; };
 		6658EB91F553E6E0E9C04332 /* Pods_Steve.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3FCDB43A5AA773581747E6A2 /* Pods_Steve.framework */; };
@@ -33,6 +34,7 @@
 		4286273D2447637700534988 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		4286273F244778E800534988 /* Steve.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Steve.entitlements; sourceTree = "<group>"; };
 		55E88DE4097AA4747BBDE861 /* Pods-Steve.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Steve.debug.xcconfig"; path = "Target Support Files/Pods-Steve/Pods-Steve.debug.xcconfig"; sourceTree = "<group>"; };
+		56C4A74C245482200026FC1A /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; };
 		56CD65F224539A7C003CC631 /* Localizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Localizer.swift; sourceTree = "<group>"; };
 		56CD65F924544464003CC631 /* ContentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -52,6 +54,7 @@
 		426DEF3024475EB50048EF49 = {
 			isa = PBXGroup;
 			children = (
+				56C4A74C245482200026FC1A /* Podfile */,
 				426DEF3B24475EB50048EF49 /* Steve */,
 				426DEF3A24475EB50048EF49 /* Products */,
 				6B2CCCB2E2068128F3B15319 /* Pods */,
@@ -210,6 +213,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				56C4A74D245482200026FC1A /* Podfile in Resources */,
 				426DEF4924475EBB0048EF49 /* LaunchScreen.storyboard in Resources */,
 				4286273E2447637700534988 /* GoogleService-Info.plist in Resources */,
 				426DEF4624475EBB0048EF49 /* Preview Assets.xcassets in Resources */,
