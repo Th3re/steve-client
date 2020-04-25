@@ -9,11 +9,13 @@
 /* Begin PBXBuildFile section */
 		426DEF3D24475EB50048EF49 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 426DEF3C24475EB50048EF49 /* AppDelegate.swift */; };
 		426DEF3F24475EB50048EF49 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 426DEF3E24475EB50048EF49 /* SceneDelegate.swift */; };
-		426DEF4124475EB50048EF49 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 426DEF4024475EB50048EF49 /* ContentView.swift */; };
+		426DEF4124475EB50048EF49 /* CurrentLocationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 426DEF4024475EB50048EF49 /* CurrentLocationView.swift */; };
 		426DEF4324475EBB0048EF49 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 426DEF4224475EBB0048EF49 /* Assets.xcassets */; };
 		426DEF4624475EBB0048EF49 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 426DEF4524475EBB0048EF49 /* Preview Assets.xcassets */; };
 		426DEF4924475EBB0048EF49 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 426DEF4724475EBB0048EF49 /* LaunchScreen.storyboard */; };
 		4286273E2447637700534988 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4286273D2447637700534988 /* GoogleService-Info.plist */; };
+		56CD65F324539A7C003CC631 /* Localizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56CD65F224539A7C003CC631 /* Localizer.swift */; };
+		56CD65FA24544464003CC631 /* ContentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56CD65F924544464003CC631 /* ContentViewModel.swift */; };
 		6658EB91F553E6E0E9C04332 /* Pods_Steve.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3FCDB43A5AA773581747E6A2 /* Pods_Steve.framework */; };
 /* End PBXBuildFile section */
 
@@ -23,7 +25,7 @@
 		426DEF3924475EB50048EF49 /* Steve.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Steve.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		426DEF3C24475EB50048EF49 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		426DEF3E24475EB50048EF49 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		426DEF4024475EB50048EF49 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		426DEF4024475EB50048EF49 /* CurrentLocationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentLocationView.swift; sourceTree = "<group>"; };
 		426DEF4224475EBB0048EF49 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		426DEF4524475EBB0048EF49 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		426DEF4824475EBB0048EF49 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -31,6 +33,8 @@
 		4286273D2447637700534988 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		4286273F244778E800534988 /* Steve.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Steve.entitlements; sourceTree = "<group>"; };
 		55E88DE4097AA4747BBDE861 /* Pods-Steve.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Steve.debug.xcconfig"; path = "Target Support Files/Pods-Steve/Pods-Steve.debug.xcconfig"; sourceTree = "<group>"; };
+		56CD65F224539A7C003CC631 /* Localizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Localizer.swift; sourceTree = "<group>"; };
+		56CD65F924544464003CC631 /* ContentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,33 +70,67 @@
 		426DEF3B24475EB50048EF49 /* Steve */ = {
 			isa = PBXGroup;
 			children = (
-				4286273F244778E800534988 /* Steve.entitlements */,
+				56CD65FB2454692D003CC631 /* Model */,
+				56CD65F824544456003CC631 /* ViewModels */,
+				56CD65F72454426B003CC631 /* Views */,
+				56CD65F62454425E003CC631 /* Assets */,
 				4286273C2447633E00534988 /* SupportingFiles */,
 				426DEF3C24475EB50048EF49 /* AppDelegate.swift */,
 				426DEF3E24475EB50048EF49 /* SceneDelegate.swift */,
-				426DEF4024475EB50048EF49 /* ContentView.swift */,
-				426DEF4224475EBB0048EF49 /* Assets.xcassets */,
 				426DEF4724475EBB0048EF49 /* LaunchScreen.storyboard */,
-				426DEF4A24475EBB0048EF49 /* Info.plist */,
-				426DEF4424475EBB0048EF49 /* Preview Content */,
 			);
 			path = Steve;
-			sourceTree = "<group>";
-		};
-		426DEF4424475EBB0048EF49 /* Preview Content */ = {
-			isa = PBXGroup;
-			children = (
-				426DEF4524475EBB0048EF49 /* Preview Assets.xcassets */,
-			);
-			path = "Preview Content";
 			sourceTree = "<group>";
 		};
 		4286273C2447633E00534988 /* SupportingFiles */ = {
 			isa = PBXGroup;
 			children = (
+				4286273F244778E800534988 /* Steve.entitlements */,
+				426DEF4A24475EBB0048EF49 /* Info.plist */,
 				4286273D2447637700534988 /* GoogleService-Info.plist */,
 			);
 			path = SupportingFiles;
+			sourceTree = "<group>";
+		};
+		56CD65F124539A49003CC631 /* Location */ = {
+			isa = PBXGroup;
+			children = (
+				56CD65F224539A7C003CC631 /* Localizer.swift */,
+			);
+			path = Location;
+			sourceTree = "<group>";
+		};
+		56CD65F62454425E003CC631 /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				426DEF4524475EBB0048EF49 /* Preview Assets.xcassets */,
+				426DEF4224475EBB0048EF49 /* Assets.xcassets */,
+			);
+			path = Assets;
+			sourceTree = "<group>";
+		};
+		56CD65F72454426B003CC631 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				426DEF4024475EB50048EF49 /* CurrentLocationView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		56CD65F824544456003CC631 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				56CD65F924544464003CC631 /* ContentViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		56CD65FB2454692D003CC631 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				56CD65F124539A49003CC631 /* Location */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		6B2CCCB2E2068128F3B15319 /* Pods */ = {
@@ -230,7 +268,9 @@
 			files = (
 				426DEF3D24475EB50048EF49 /* AppDelegate.swift in Sources */,
 				426DEF3F24475EB50048EF49 /* SceneDelegate.swift in Sources */,
-				426DEF4124475EB50048EF49 /* ContentView.swift in Sources */,
+				426DEF4124475EB50048EF49 /* CurrentLocationView.swift in Sources */,
+				56CD65F324539A7C003CC631 /* Localizer.swift in Sources */,
+				56CD65FA24544464003CC631 /* ContentViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -298,13 +338,14 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
 		};
@@ -352,12 +393,13 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -367,13 +409,13 @@
 			baseConfigurationReference = 55E88DE4097AA4747BBDE861 /* Pods-Steve.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = Steve/Steve.entitlements;
+				CODE_SIGN_ENTITLEMENTS = Steve/SupportingFiles/Steve.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_ASSET_PATHS = "\"Steve/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "Steve/Assets/Preview\\ Assets.xcassets";
 				DEVELOPMENT_TEAM = 6QXDZG78JS;
 				ENABLE_PREVIEWS = YES;
-				INFOPLIST_FILE = Steve/Info.plist;
+				INFOPLIST_FILE = Steve/SupportingFiles/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -381,8 +423,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.th3re.steve;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "Steve-latest";
-				SWIFT_VERSION = 5.0;
+				PROVISIONING_PROFILE_SPECIFIER = Steve;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -392,13 +433,13 @@
 			baseConfigurationReference = 1926E473CE4BA6F5B8D57D5D /* Pods-Steve.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = Steve/Steve.entitlements;
+				CODE_SIGN_ENTITLEMENTS = Steve/SupportingFiles/Steve.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_ASSET_PATHS = "\"Steve/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "Steve/Assets/Preview\\ Assets.xcassets";
 				DEVELOPMENT_TEAM = 6QXDZG78JS;
 				ENABLE_PREVIEWS = YES;
-				INFOPLIST_FILE = Steve/Info.plist;
+				INFOPLIST_FILE = Steve/SupportingFiles/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -406,8 +447,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.th3re.steve;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "Steve-latest";
-				SWIFT_VERSION = 5.0;
+				PROVISIONING_PROFILE_SPECIFIER = Steve;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
