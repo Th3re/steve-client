@@ -111,12 +111,16 @@ PODS:
   - nanopb/encode (0.3.9011)
   - PromisesObjC (1.2.8)
   - Protobuf (3.11.4)
+  - SnapKit (5.0.1)
+  - Swinject (2.7.1)
 
 DEPENDENCIES:
   - Firebase/Analytics
   - Firebase/Auth
   - Firebase/Messaging
   - GoogleSignIn
+  - SnapKit
+  - Swinject
 
 SPEC REPOS:
   trunk:
@@ -142,6 +146,8 @@ SPEC REPOS:
     - nanopb
     - PromisesObjC
     - Protobuf
+    - SnapKit
+    - Swinject
 
 SPEC CHECKSUMS:
   AppAuth: 73574f3013a1e65b9601a3ddc8b3158cce68c09d
@@ -166,7 +172,9 @@ SPEC CHECKSUMS:
   nanopb: 18003b5e52dab79db540fe93fe9579f399bd1ccd
   PromisesObjC: c119f3cd559f50b7ae681fa59dc1acd19173b7e6
   Protobuf: 176220c526ad8bd09ab1fb40a978eac3fef665f7
+  SnapKit: 97b92857e3df3a0c71833cce143274bf6ef8e5eb
+  Swinject: ddf78b8486dd9b71a667b852cad919ab4484478e
 
-PODFILE CHECKSUM: eab7c1e74fc00ccfd082f5775f7d9e07ab8d9e3c
+PODFILE CHECKSUM: d1038c9bd1571af1a26f469ea98b1f6d202cdba0
 
 COCOAPODS: 1.9.1
