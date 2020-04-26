@@ -10,13 +10,16 @@ import Combine
 import CoreLocation
 
 final class LocationUpdatesSubscription: NSObject, Subscription {
+    // MARK: - Properties
     var subscriber: AnySubscriber<CLLocation, Never>
     weak private var publisher: Localizer?
+    // MARK: - Initialization
     public init<S: Subscriber>(subscriber: S, publisher: Localizer) where S.Input == CLLocation,
                                                                           S.Failure == Never {
         self.subscriber = AnySubscriber(subscriber)
         self.publisher = publisher
     }
+    // MARK: - Subscription
     func request(_ demand: Subscribers.Demand) {
         if demand != .unlimited {
             fatalError("Demand: \(demand) is not supported")
