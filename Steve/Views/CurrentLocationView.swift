@@ -9,7 +9,7 @@
 import SwiftUI
 
 struct CurrentLocationView: View {
-    @ObservedObject var model: CurrentLocationViewModel = CurrentLocationViewModel()
+    @EnvironmentObject var viewModel: CurrentLocationViewModel
     var body: some View {
         ZStack {
             Color.theme
@@ -18,7 +18,7 @@ struct CurrentLocationView: View {
                     .foregroundColor(.white)
                     .font(.system(size: 30))
                     .fontWeight(.bold)
-                Text("\(model.location?.coordinate.latitude ?? 0) \(model.location?.coordinate.longitude ?? 0)")
+                Text("\(viewModel.location?.coordinate.latitude ?? 0) \(viewModel.location?.coordinate.longitude ?? 0)")
                     .foregroundColor(.white)
                     .fontWeight(.semibold)
             }
