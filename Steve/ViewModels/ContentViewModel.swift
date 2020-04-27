@@ -13,10 +13,9 @@ class CurrentLocationViewModel: ObservableObject {
     // MARK: - Properties
     @Published var location: CLLocation?
     private var subscription: AnyCancellable?
-    private let localizer = Localizer()
     // MARK: - Initialization
-    init() {
-        subscription = Localizer()
+    init(localizer: Localizer) {
+        subscription = localizer
             .makeConnectable()
             .autoconnect()
             .map { Optional($0) }
