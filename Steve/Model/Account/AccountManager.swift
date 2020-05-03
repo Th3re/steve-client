@@ -34,7 +34,7 @@ class AccountManager: ObservableObject {
             }
         }
     }
-    func sendAuthorization(code: String, completion: @escaping (Bool)->()) {
+    private func sendAuthorization(code: String, completion: @escaping (Bool)->()) {
         let url = URL(string: serverAddress + "/auth/auth?code=\(code)&scope=none")!
         var request = URLRequest(url: url)
         request.httpMethod = "get"
@@ -45,20 +45,21 @@ class AccountManager: ObservableObject {
                 completion(false)
                 return
             }
+            guard let data = data else {
+                completion(false)
+                return
+            }
             do {
-                guard let data = data else {
-                    completion(false)
-                    return
-                }
                 guard let json = try JSONSerialization.jsonObject(with: data, options: []) as? [String: AnyObject] else {
                     completion(false)
                     return
                 }
                 print("json:", json)
+                completion(true)
             } catch {
                 print("error:", error.localizedDescription)
+                completion(false)
             }
-            completion(true)
         }
         task.resume()
     }
