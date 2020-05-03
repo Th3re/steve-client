@@ -25,7 +25,7 @@ class LocationUploader {
             self.send(location: location, user: userInfo)
         })
     }
-    func send(location: CLLocation, user: UserInfo) {
+    private func send(location: CLLocation, user: UserInfo) {
         let url = URL(string: self.serverAddress + "/location/location")!
         let jsonDict: [String : Any] = ["userId": user.userId, "latitude": location.coordinate.latitude, "longitude": location.coordinate.longitude]
         let jsonData = try! JSONSerialization.data(withJSONObject: jsonDict, options: [])
