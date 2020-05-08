@@ -21,6 +21,10 @@ struct MainView: View {
                     Image(systemName: "cloud")
                     Text("Account")
                 }
+                EventsView().tabItem {
+                    Image(systemName: "calendar")
+                    Text("Events")
+                }
             }
         }
     }

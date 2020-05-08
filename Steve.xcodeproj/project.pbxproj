@@ -34,6 +34,8 @@
 		567157542465DC7D00C9BC0D /* SendAuthenticationCodeNetTaskFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 567157532465DC7D00C9BC0D /* SendAuthenticationCodeNetTaskFactory.swift */; };
 		567157562465EA3200C9BC0D /* NetworkAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 567157552465EA3200C9BC0D /* NetworkAssembly.swift */; };
 		567157582465EC2600C9BC0D /* AccountManageable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 567157572465EC2600C9BC0D /* AccountManageable.swift */; };
+		5671575A2465F28300C9BC0D /* EventsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 567157592465F28300C9BC0D /* EventsView.swift */; };
+		5671575D2465F77900C9BC0D /* SelectParticipantsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5671575C2465F77900C9BC0D /* SelectParticipantsView.swift */; };
 		56B404F424599B5500974655 /* NSDictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56B404F324599B5500974655 /* NSDictionary.swift */; };
 		56B404F624599BFE00974655 /* PropertyListDecodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56B404F524599BFE00974655 /* PropertyListDecodable.swift */; };
 		56C4A74D245482200026FC1A /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 56C4A74C245482200026FC1A /* Podfile */; };
@@ -81,6 +83,8 @@
 		567157532465DC7D00C9BC0D /* SendAuthenticationCodeNetTaskFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendAuthenticationCodeNetTaskFactory.swift; sourceTree = "<group>"; };
 		567157552465EA3200C9BC0D /* NetworkAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkAssembly.swift; sourceTree = "<group>"; };
 		567157572465EC2600C9BC0D /* AccountManageable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountManageable.swift; sourceTree = "<group>"; };
+		567157592465F28300C9BC0D /* EventsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsView.swift; sourceTree = "<group>"; };
+		5671575C2465F77900C9BC0D /* SelectParticipantsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectParticipantsView.swift; sourceTree = "<group>"; };
 		56B404F324599B5500974655 /* NSDictionary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSDictionary.swift; sourceTree = "<group>"; };
 		56B404F524599BFE00974655 /* PropertyListDecodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PropertyListDecodable.swift; sourceTree = "<group>"; };
 		56C4A74C245482200026FC1A /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; };
@@ -227,6 +231,14 @@
 			path = Protocols;
 			sourceTree = "<group>";
 		};
+		5671575B2465F76100C9BC0D /* EventCreator */ = {
+			isa = PBXGroup;
+			children = (
+				5671575C2465F77900C9BC0D /* SelectParticipantsView.swift */,
+			);
+			path = EventCreator;
+			sourceTree = "<group>";
+		};
 		56B404F024599B2000974655 /* Environment */ = {
 			isa = PBXGroup;
 			children = (
@@ -267,10 +279,12 @@
 		56CD65F72454426B003CC631 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				5671575B2465F76100C9BC0D /* EventCreator */,
 				5633337A245514D100CB72A1 /* Account */,
 				426DEF4024475EB50048EF49 /* CurrentLocationView.swift */,
 				56C4A74E245494240026FC1A /* MainView.swift */,
 				561024A3245742DF008A4D7D /* RemoteImage.swift */,
+				567157592465F28300C9BC0D /* EventsView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -457,6 +471,8 @@
 				56C4A74F245494240026FC1A /* MainView.swift in Sources */,
 				5664DF912459988A00797E30 /* AccountAssembly.swift in Sources */,
 				426DEF3F24475EB50048EF49 /* SceneDelegate.swift in Sources */,
+				5671575D2465F77900C9BC0D /* SelectParticipantsView.swift in Sources */,
+				5671575A2465F28300C9BC0D /* EventsView.swift in Sources */,
 				426DEF4124475EB50048EF49 /* CurrentLocationView.swift in Sources */,
 				56FFFD2924559DA8003258F5 /* UserDetailsViewModel.swift in Sources */,
 				56C4A751245496CE0026FC1A /* AccountView.swift in Sources */,
