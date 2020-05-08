@@ -13,14 +13,14 @@ import GoogleSignIn
 class LoginViewController: UIViewController, GIDSignInDelegate {
     // MARK: - Properties
     private let button = UIButton(type: .system)
-    private let accountManager: AccountManager
+    private let accountManager: AccountManageable
     private var buttonTitle: String {
         get {
-            accountManager.loggedUser.value != nil ? "Sign out" : "Sign In"
+            accountManager.signedUser != nil ? "Sign out" : "Sign In"
         }
     }
     // MARK: - Initialization
-    init(accountManager: AccountManager, loggedUser: UserInfo?) {
+    init(accountManager: AccountManageable, loggedUser: UserInfo?) {
         self.accountManager = accountManager
         super.init(nibName: nil, bundle: nil)
     }
@@ -46,7 +46,7 @@ class LoginViewController: UIViewController, GIDSignInDelegate {
     }
     // MARK: - Private
     @objc private func tapped(_ sender: UIButton) {
-        if accountManager.loggedUser.value != nil {
+        if accountManager.signedUser != nil {
             GIDSignIn.sharedInstance()?.signOut()
             accountManager.logOut()
         } else {
@@ -72,7 +72,7 @@ class LoginViewController: UIViewController, GIDSignInDelegate {
                                     emailAddress: user.profile.email,
                                     firstName: user.profile.givenName,
                                     secondName: user.profile.familyName)
-            accountManager.logInWith(userInfo: userInfo, code: user.serverAuthCode) { success in
+            accountManager.logIn(with: userInfo, code: user.serverAuthCode) { success in
                 if !success {
                     GIDSignIn.sharedInstance()?.signOut()
                 }

@@ -27,10 +27,10 @@ class NotificationManager: NSObject, UNUserNotificationCenterDelegate, Messaging
         UNUserNotificationCenter.current().delegate = self
     }
     private func setupSubscriptions() {
-        currentUserSubscription = accountManager.loggedUser.makeConnectable().autoconnect().compactMap { $0 }.sink { user in
+        currentUserSubscription = accountManager.publishers.currentlyLogged.compactMap { $0 }.sink { user in
             Messaging.messaging().subscribe(toTopic: user.userId)
         }
-        previousUserSubscription = accountManager.previousLoggedUser.makeConnectable().autoconnect().compactMap { $0 }.sink { user in
+        previousUserSubscription = accountManager.publishers.previouslyLogged.compactMap { $0 }.sink { user in
             Messaging.messaging().unsubscribe(fromTopic: user.userId)
         }
     }

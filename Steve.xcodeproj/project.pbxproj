@@ -28,6 +28,12 @@
 		5664DF8D2459941900797E30 /* EnvironmentAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5664DF8C2459941900797E30 /* EnvironmentAssembly.swift */; };
 		5664DF8F2459984900797E30 /* LocationAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5664DF8E2459984900797E30 /* LocationAssembly.swift */; };
 		5664DF912459988A00797E30 /* AccountAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5664DF902459988A00797E30 /* AccountAssembly.swift */; };
+		5671574D2465D50C00C9BC0D /* NetTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5671574C2465D50B00C9BC0D /* NetTask.swift */; };
+		5671574F2465D5EB00C9BC0D /* SendAuthenticationCodeNetTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5671574E2465D5EB00C9BC0D /* SendAuthenticationCodeNetTask.swift */; };
+		567157522465DB8200C9BC0D /* NetTaskFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 567157512465DB8200C9BC0D /* NetTaskFactory.swift */; };
+		567157542465DC7D00C9BC0D /* SendAuthenticationCodeNetTaskFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 567157532465DC7D00C9BC0D /* SendAuthenticationCodeNetTaskFactory.swift */; };
+		567157562465EA3200C9BC0D /* NetworkAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 567157552465EA3200C9BC0D /* NetworkAssembly.swift */; };
+		567157582465EC2600C9BC0D /* AccountManageable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 567157572465EC2600C9BC0D /* AccountManageable.swift */; };
 		56B404F424599B5500974655 /* NSDictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56B404F324599B5500974655 /* NSDictionary.swift */; };
 		56B404F624599BFE00974655 /* PropertyListDecodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56B404F524599BFE00974655 /* PropertyListDecodable.swift */; };
 		56C4A74D245482200026FC1A /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 56C4A74C245482200026FC1A /* Podfile */; };
@@ -69,6 +75,12 @@
 		5664DF8C2459941900797E30 /* EnvironmentAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnvironmentAssembly.swift; sourceTree = "<group>"; };
 		5664DF8E2459984900797E30 /* LocationAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationAssembly.swift; sourceTree = "<group>"; };
 		5664DF902459988A00797E30 /* AccountAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountAssembly.swift; sourceTree = "<group>"; };
+		5671574C2465D50B00C9BC0D /* NetTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetTask.swift; sourceTree = "<group>"; };
+		5671574E2465D5EB00C9BC0D /* SendAuthenticationCodeNetTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendAuthenticationCodeNetTask.swift; sourceTree = "<group>"; };
+		567157512465DB8200C9BC0D /* NetTaskFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetTaskFactory.swift; sourceTree = "<group>"; };
+		567157532465DC7D00C9BC0D /* SendAuthenticationCodeNetTaskFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendAuthenticationCodeNetTaskFactory.swift; sourceTree = "<group>"; };
+		567157552465EA3200C9BC0D /* NetworkAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkAssembly.swift; sourceTree = "<group>"; };
+		567157572465EC2600C9BC0D /* AccountManageable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountManageable.swift; sourceTree = "<group>"; };
 		56B404F324599B5500974655 /* NSDictionary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSDictionary.swift; sourceTree = "<group>"; };
 		56B404F524599BFE00974655 /* PropertyListDecodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PropertyListDecodable.swift; sourceTree = "<group>"; };
 		56C4A74C245482200026FC1A /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; };
@@ -153,6 +165,7 @@
 			children = (
 				563333692455023D00CB72A1 /* UserInfo.swift */,
 				5633336B2455024F00CB72A1 /* AccountManager.swift */,
+				567157572465EC2600C9BC0D /* AccountManageable.swift */,
 			);
 			path = Account;
 			sourceTree = "<group>";
@@ -190,8 +203,28 @@
 				5664DF8C2459941900797E30 /* EnvironmentAssembly.swift */,
 				5664DF8E2459984900797E30 /* LocationAssembly.swift */,
 				5664DF902459988A00797E30 /* AccountAssembly.swift */,
+				567157552465EA3200C9BC0D /* NetworkAssembly.swift */,
 			);
 			path = Assemblies;
+			sourceTree = "<group>";
+		};
+		5671574B2465D4FF00C9BC0D /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				567157502465DB6400C9BC0D /* Protocols */,
+				5671574E2465D5EB00C9BC0D /* SendAuthenticationCodeNetTask.swift */,
+				567157532465DC7D00C9BC0D /* SendAuthenticationCodeNetTaskFactory.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		567157502465DB6400C9BC0D /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				5671574C2465D50B00C9BC0D /* NetTask.swift */,
+				567157512465DB8200C9BC0D /* NetTaskFactory.swift */,
+			);
+			path = Protocols;
 			sourceTree = "<group>";
 		};
 		56B404F024599B2000974655 /* Environment */ = {
@@ -255,6 +288,7 @@
 		56CD65FB2454692D003CC631 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				5671574B2465D4FF00C9BC0D /* Network */,
 				56B404F024599B2000974655 /* Environment */,
 				563333682455023100CB72A1 /* Account */,
 				56CD65F124539A49003CC631 /* Location */,
@@ -416,6 +450,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				56FFFD272455198E003258F5 /* UserDetailsView.swift in Sources */,
+				5671574F2465D5EB00C9BC0D /* SendAuthenticationCodeNetTask.swift in Sources */,
 				561024A4245742DF008A4D7D /* RemoteImage.swift in Sources */,
 				426DEF3D24475EB50048EF49 /* AppDelegate.swift in Sources */,
 				563333792455115200CB72A1 /* AccountViewModel.swift in Sources */,
@@ -427,19 +462,24 @@
 				56C4A751245496CE0026FC1A /* AccountView.swift in Sources */,
 				5664DF86245992A500797E30 /* Environment.swift in Sources */,
 				5633336F2455072A00CB72A1 /* LoginPresenter.swift in Sources */,
+				567157522465DB8200C9BC0D /* NetTaskFactory.swift in Sources */,
 				4215FFE62454C901009C5336 /* LoginViewController.swift in Sources */,
 				56B404F424599B5500974655 /* NSDictionary.swift in Sources */,
 				56C4A7542454984F0026FC1A /* Color.swift in Sources */,
 				56CD65F324539A7C003CC631 /* Localizer.swift in Sources */,
 				56CD65FA24544464003CC631 /* CurrentLocationViewModel.swift in Sources */,
 				561024A624575B89008A4D7D /* LocationUploader.swift in Sources */,
+				567157542465DC7D00C9BC0D /* SendAuthenticationCodeNetTaskFactory.swift in Sources */,
 				5664DF8A245993F800797E30 /* Assembler.swift in Sources */,
 				5664DF8D2459941900797E30 /* EnvironmentAssembly.swift in Sources */,
 				56B404F624599BFE00974655 /* PropertyListDecodable.swift in Sources */,
+				5671574D2465D50C00C9BC0D /* NetTask.swift in Sources */,
 				561024A924578869008A4D7D /* NotificationManager.swift in Sources */,
 				5633336A2455023D00CB72A1 /* UserInfo.swift in Sources */,
 				563333672455004300CB72A1 /* UIColor.swift in Sources */,
+				567157582465EC2600C9BC0D /* AccountManageable.swift in Sources */,
 				5664DF8F2459984900797E30 /* LocationAssembly.swift in Sources */,
+				567157562465EA3200C9BC0D /* NetworkAssembly.swift in Sources */,
 				5633336C2455024F00CB72A1 /* AccountManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

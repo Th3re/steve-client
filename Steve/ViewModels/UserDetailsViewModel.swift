@@ -25,7 +25,7 @@ class UserDetailsViewModel: ObservableObject {
     }
     // MARK: - Private
     func setupSubscription() {
-        subscription = accountManager.loggedUser.sink(receiveValue: { [unowned self] userInfo in
+        subscription = accountManager.publishers.currentlyLogged.sink(receiveValue: { [unowned self] userInfo in
             if let userInfo = userInfo {
                 self.name = userInfo.firstName + " " + userInfo.secondName
                 self.email = userInfo.emailAddress

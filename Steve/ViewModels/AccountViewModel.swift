@@ -21,7 +21,7 @@ class AccountViewModel: ObservableObject {
     }
     // MARK: - Private
     func setupSubscription() {
-        subscription = accountManager.loggedUser.makeConnectable().autoconnect().assign(to: \.loggedUser, on: self)
+        subscription = accountManager.publishers.currentlyLogged.assign(to: \.loggedUser, on: self)
     }
     // MARK: - Deinitialization
     deinit {
