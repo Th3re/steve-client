@@ -15,11 +15,11 @@ class UserDetailsViewModel: ObservableObject {
     @Published var name = "Unknown user"
     @Published var email = ""
     @Published var imageURL: URL?
-    private let accountManager: AccountManager
+    private let accountManager: AccountManageable
     private var userInfo: UserInfo?
     private var subscription: AnyCancellable?
     // MARK: - Initialization
-    init(accountManager: AccountManager) {
+    init(accountManager: AccountManageable) {
         self.accountManager = accountManager
         setupSubscription()
     }

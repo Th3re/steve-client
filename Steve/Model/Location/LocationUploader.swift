@@ -15,7 +15,7 @@ class LocationUploader {
     private var subscription: Cancellable?
     private let serverAddress: String
     // MARK: - Initialization
-    init(localizer: Localizer, accountManager: AccountManager, serverAddress: String) {
+    init(localizer: Localizer, accountManager: AccountManageable, serverAddress: String) {
         self.serverAddress = serverAddress
         subscription = accountManager.publishers.currentlyLogged
             .combineLatest(localizer)

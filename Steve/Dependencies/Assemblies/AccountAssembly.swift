@@ -11,12 +11,12 @@ import Swinject
 struct AccountAssembly: Assembly {
     // MARK: - Assembly
     func assemble(container: Container) {
-        container.register(AccountManager.self) { resolver in
+        container.register(AccountManageable.self) { resolver in
             let netTaskFactory = resolver.resolve(SendAuthenticationCodeNetTaskFactory.self)!
             return AccountManager(netTasksFactory: netTaskFactory)
         }.inObjectScope(.weak)
         container.register(NotificationManager.self) { resolver in
-            let accountManager = resolver.resolve(AccountManager.self)!
+            let accountManager = resolver.resolve(AccountManageable.self)!
             return NotificationManager(accountManager: accountManager)
         }.inObjectScope(.weak)
     }

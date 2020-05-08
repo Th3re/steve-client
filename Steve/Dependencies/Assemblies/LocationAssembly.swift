@@ -13,7 +13,7 @@ struct LocationAssembly: Assembly {
     func assemble(container: Container) {
         container.register(LocationUploader.self) { resolver in
             let localizer = resolver.resolve(Localizer.self)!
-            let accountManager = resolver.resolve(AccountManager.self)!
+            let accountManager = resolver.resolve(AccountManageable.self)!
             let environment = resolver.resolve(Environment.self)!
             let serverAddress = environment.appConfig.serverAddress
             return LocationUploader(localizer: localizer, accountManager: accountManager, serverAddress: serverAddress)

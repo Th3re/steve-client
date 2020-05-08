@@ -18,7 +18,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     private var notificationManager: NotificationManager?
     // MARK: - UIWindowSceneDelegate
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
-        let accountManager = assembler.resolver.resolve(AccountManager.self)!
+        let accountManager = assembler.resolver.resolve(AccountManageable.self)!
         let localizer = assembler.resolver.resolve(Localizer.self)!
         notificationManager = assembler.resolver.resolve(NotificationManager.self)!
         notificationManager?.requestAuthorization()
