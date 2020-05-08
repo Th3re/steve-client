@@ -13,6 +13,7 @@ extension Assembler {
     static var `default` = {
         return Assembler([EnvironmentAssembly(),
                           LocationAssembly(),
-                          AccountAssembly()])
+                          AccountAssembly(),
+                          NetworkAssembly()])
     }()
 }

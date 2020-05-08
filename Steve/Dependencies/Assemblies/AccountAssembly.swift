@@ -12,9 +12,8 @@ struct AccountAssembly: Assembly {
     // MARK: - Assembly
     func assemble(container: Container) {
         container.register(AccountManager.self) { resolver in
-            let environment = resolver.resolve(Environment.self)!
-            let serverAddress = environment.appConfig.serverAddress
-            return AccountManager(serverAddress: serverAddress)
+            let netTaskFactory = resolver.resolve(SendAuthenticationCodeNetTaskFactory.self)!
+            return AccountManager(netTasksFactory: netTaskFactory)
         }.inObjectScope(.weak)
         container.register(NotificationManager.self) { resolver in
             let accountManager = resolver.resolve(AccountManager.self)!

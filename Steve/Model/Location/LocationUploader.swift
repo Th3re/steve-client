@@ -17,7 +17,7 @@ class LocationUploader {
     // MARK: - Initialization
     init(localizer: Localizer, accountManager: AccountManager, serverAddress: String) {
         self.serverAddress = serverAddress
-        subscription = accountManager.loggedUser
+        subscription = accountManager.publishers.currentlyLogged
             .combineLatest(localizer)
             .filter{ $0.0 != nil }
             .map{ ($0!, $1)}

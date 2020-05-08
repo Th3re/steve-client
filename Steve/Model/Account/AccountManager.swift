@@ -9,59 +9,43 @@
 import Combine
 import Foundation
 
-class AccountManager: ObservableObject {
+
+class AccountManager: ObservableObject, AccountManageable {
     // MARK: - Properties
-    var loggedUser = CurrentValueSubject<UserInfo?, Never>(nil)
-    var previousLoggedUser = CurrentValueSubject<UserInfo?, Never>(nil)
-    private let serverAddress: String
+    var publishers: AccountPublishers { return AccountPublishers(currentlyLogged: currentlyLoggedUser.eraseToAnyPublisher(),
+                                                                 previouslyLogged: previouslyLoggedUser.eraseToAnyPublisher())
+    }
+    var signedUser: UserInfo? { return currentlyLoggedUser.value }
+    private let currentlyLoggedUser = CurrentValueSubject<UserInfo?, Never>(nil)
+    private let previouslyLoggedUser = CurrentValueSubject<UserInfo?, Never>(nil)
+    private let netTasksFactory: SendAuthenticationCodeNetTaskFactory
+    private var networkTask: AnyCancellable?
     // MARK: - Initialization
-    init(serverAddress: String) {
-        self.serverAddress = serverAddress
+    init(netTasksFactory: SendAuthenticationCodeNetTaskFactory) {
+        self.netTasksFactory = netTasksFactory
     }
     // MARK: - Internal
     func logOut() {
-        previousLoggedUser.send(loggedUser.value)
-        loggedUser.send(nil)
+        changeUser(to: nil)
     }
-    func logInWith(userInfo: UserInfo, code: String, completion: @escaping (Bool)->()) {
-        sendAuthorization(code: code) { success in
-            DispatchQueue.main.async { [weak self] in
-                if success, let self = `self` {
-                    self.previousLoggedUser.send(self.loggedUser.value)
-                    self.loggedUser.send(userInfo)
-                }
-                completion(success)
-            }
+    func logIn(with userInfo: UserInfo, code: String, completion: @escaping (Bool)->()) {
+        networkTask = netTasksFactory.build(with: .init(code: code))
+            .publisher
+            .receive(on: DispatchQueue.main)
+            .sink(receiveCompletion: { error in
+                completion(false)
+            }) { [weak self] data in
+            self?.changeUser(to: userInfo)
+            completion(true)
         }
     }
     // MARK: - Private
-    private func sendAuthorization(code: String, completion: @escaping (Bool)->()) {
-        let url = URL(string: serverAddress + "/auth/auth?code=\(code)&scope=none")!
-        var request = URLRequest(url: url)
-        request.httpMethod = "get"
-        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
-        let task = URLSession.shared.dataTask(with: request) { data, response, error in
-            if let error = error {
-                print("error:", error.localizedDescription)
-                completion(false)
-                return
-            }
-            guard let data = data else {
-                completion(false)
-                return
-            }
-            do {
-                guard let json = try JSONSerialization.jsonObject(with: data, options: []) as? [String: AnyObject] else {
-                    completion(false)
-                    return
-                }
-                print("json:", json)
-                completion(true)
-            } catch {
-                print("error:", error.localizedDescription)
-                completion(false)
-            }
-        }
-        task.resume()
+    private func changeUser(to user: UserInfo?) {
+        previouslyLoggedUser.send(currentlyLoggedUser.value)
+        currentlyLoggedUser.send(user)
+    }
+    // MARK: - Deinitialization
+    deinit {
+        networkTask?.cancel()
     }
 }
