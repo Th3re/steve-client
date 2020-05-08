@@ -12,10 +12,10 @@ import Foundation
 
 class AccountManager: ObservableObject, AccountManageable {
     // MARK: - Properties
-    var publishers: AccountPublishers { return AccountPublishers(currentlyLogged: currentlyLoggedUser.eraseToAnyPublisher(),
-                                                                 previouslyLogged: previouslyLoggedUser.eraseToAnyPublisher())
+    var publishers: AccountPublishers { AccountPublishers(currentlyLogged: currentlyLoggedUser.eraseToAnyPublisher(),
+                                                          previouslyLogged: previouslyLoggedUser.eraseToAnyPublisher())
     }
-    var signedUser: UserInfo? { return currentlyLoggedUser.value }
+    var signedUser: UserInfo? { currentlyLoggedUser.value }
     private let currentlyLoggedUser = CurrentValueSubject<UserInfo?, Never>(nil)
     private let previouslyLoggedUser = CurrentValueSubject<UserInfo?, Never>(nil)
     private let netTasksFactory: SendAuthenticationCodeNetTaskFactory

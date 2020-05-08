@@ -16,7 +16,7 @@ class SendAuthenticationCodeNetTask: NetTask {
     // MARK: - Properties
     private let serverAddress: String
     private let code: String
-    private var url: URL { return URL(string: serverAddress + "/auth/auth?code=\(code)&scope=none")! }
+    private var url: URL { URL(string: serverAddress + "/auth/auth?code=\(code)&scope=none")! }
     // MARK: - Initialization
     init(serverAddress: String, code: String) {
         self.serverAddress = serverAddress
