@@ -13,10 +13,10 @@ struct LoginPresenter: UIViewControllerRepresentable {
     // MARK: - Aliases
     typealias UIViewControllerType = LoginViewController
     // MARK: - Properties
-    private let accountManager: AccountManager
+    private let accountManager: AccountManageable
     private let loggedUser: UserInfo?
     // MARK: - Initialization
-    init(accountManager: AccountManager, loggedUser: UserInfo?) {
+    init(accountManager: AccountManageable, loggedUser: UserInfo?) {
         self.accountManager = accountManager
         self.loggedUser = loggedUser
     }

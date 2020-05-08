@@ -12,10 +12,10 @@ import Foundation
 class AccountViewModel: ObservableObject {
     // MARK: - Properties
     @Published var loggedUser: UserInfo?
-    let accountManager: AccountManager
+    let accountManager: AccountManageable
     private var subscription: AnyCancellable?
     // MARK: - Initialization
-    init(accountManager: AccountManager) {
+    init(accountManager: AccountManageable) {
         self.accountManager = accountManager
         setupSubscription()
     }

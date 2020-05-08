@@ -11,11 +11,11 @@ import Firebase
 
 class NotificationManager: NSObject, UNUserNotificationCenterDelegate, MessagingDelegate {
     // MARK: - Properties
-    private let accountManager: AccountManager
+    private let accountManager: AccountManageable
     private var currentUserSubscription: Cancellable?
     private var previousUserSubscription: Cancellable?
     // MARK: - Initialization
-    init(accountManager: AccountManager) {
+    init(accountManager: AccountManageable) {
         self.accountManager = accountManager
         super.init()
         setupDelegates()
