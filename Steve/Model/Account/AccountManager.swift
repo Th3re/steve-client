@@ -34,6 +34,7 @@ class AccountManager: ObservableObject {
             }
         }
     }
+    // MARK: - Private
     private func sendAuthorization(code: String, completion: @escaping (Bool)->()) {
         let url = URL(string: serverAddress + "/auth/auth?code=\(code)&scope=none")!
         var request = URLRequest(url: url)
