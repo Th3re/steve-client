@@ -10,9 +10,9 @@ import Swinject
 import Foundation
 
 extension Assembler {
-    static var `default`: Assembler {
+    static var `default` = {
         return Assembler([EnvironmentAssembly(),
                           LocationAssembly(),
                           AccountAssembly()])
-    }
+    }()
 }
