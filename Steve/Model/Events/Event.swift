@@ -10,7 +10,7 @@ import Foundation
 
 struct Event: Hashable, Identifiable, Codable {
     var id: String
-    let summary: String
+    let summary: String?
     let location: String
     let htmlLink: String
     let status: String

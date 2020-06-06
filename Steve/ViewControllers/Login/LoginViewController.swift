@@ -51,6 +51,11 @@ class LoginViewController: UIViewController, GIDSignInDelegate {
             accountManager.logOut()
         } else {
             GIDSignIn.sharedInstance()?.scopes.append("https://www.googleapis.com/auth/calendar")
+            GIDSignIn.sharedInstance()?.scopes.append("profile")
+            GIDSignIn.sharedInstance()?.scopes.append("https://mail.google.com")
+            GIDSignIn.sharedInstance()?.scopes.append("https://www.googleapis.com/auth/userinfo.profile")
+            GIDSignIn.sharedInstance()?.scopes.append("https://www.googleapis.com/auth/gmail.readonly")
+            GIDSignIn.sharedInstance()?.scopes.append("https://www.googleapis.com/auth/contacts")
             GIDSignIn.sharedInstance()?.signIn()
         }
     }

@@ -24,10 +24,10 @@ struct EventsRow: View {
         let end = endDateFormatter.string(from: eventEnd)
         return "\(start)-\(end)"
     }
-    
+
     var body: some View {
         VStack(alignment: .leading) {
-            Text(event.summary)
+            Text(event.summary ?? "")
             .font(.title)
             Text(self.eventTime(event))
             .font(.caption)
