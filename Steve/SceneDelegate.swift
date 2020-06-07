@@ -16,7 +16,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     private let assembler = Assembler.default
     private var locationUploader: LocationUploader?
     private var notificationManager: NotificationManager?
-    private var eventsFetcher: EventsFetcher?
     // MARK: - UIWindowSceneDelegate
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         let accountManager = assembler.resolver.resolve(AccountManageable.self)!
@@ -24,12 +23,12 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         notificationManager = assembler.resolver.resolve(NotificationManager.self)!
         notificationManager?.requestAuthorization()
         locationUploader = assembler.resolver.resolve(LocationUploader.self)!
-        eventsFetcher = assembler.resolver.resolve(EventsFetcher.self)!
+        let environment = assembler.resolver.resolve(Environment.self)!
         let contentView = MainView()
             .environmentObject(UserDetailsViewModel(accountManager: accountManager))
             .environmentObject(AccountViewModel(accountManager: accountManager))
             .environmentObject(CurrentLocationViewModel(localizer: localizer))
-            .environmentObject(EventsListViewModel(eventsFetcher: eventsFetcher!))
+            .environmentObject(EventsListViewModel(serverAddress: environment.appConfig.serverAddress, accountManager: accountManager))
         if let windowScene = scene as? UIWindowScene {
             window = UIWindow(windowScene: windowScene)
             window?.rootViewController = UIHostingController(rootView: contentView)

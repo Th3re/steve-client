@@ -10,9 +10,9 @@
 		4215FFE62454C901009C5336 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4215FFE52454C901009C5336 /* LoginViewController.swift */; };
 		423FC7F9248C0EF800252EEA /* EventsRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 423FC7F8248C0EF800252EEA /* EventsRow.swift */; };
 		423FC7FE248C0F4100252EEA /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 423FC7FD248C0F4100252EEA /* Event.swift */; };
-		423FC801248CBCF800252EEA /* EventsFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 423FC800248CBCF800252EEA /* EventsFetcher.swift */; };
 		423FC803248CE37300252EEA /* EventsListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 423FC802248CE37300252EEA /* EventsListViewModel.swift */; };
 		423FC805248CE5DB00252EEA /* EventsListAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 423FC804248CE5DB00252EEA /* EventsListAssembly.swift */; };
+		424423C6248D651B009E43E8 /* FetchEventsNetTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 424423C5248D651B009E43E8 /* FetchEventsNetTask.swift */; };
 		426DEF3D24475EB50048EF49 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 426DEF3C24475EB50048EF49 /* AppDelegate.swift */; };
 		426DEF3F24475EB50048EF49 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 426DEF3E24475EB50048EF49 /* SceneDelegate.swift */; };
 		426DEF4124475EB50048EF49 /* CurrentLocationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 426DEF4024475EB50048EF49 /* CurrentLocationView.swift */; };
@@ -60,9 +60,9 @@
 		4215FFE52454C901009C5336 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		423FC7F8248C0EF800252EEA /* EventsRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsRow.swift; sourceTree = "<group>"; };
 		423FC7FD248C0F4100252EEA /* Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
-		423FC800248CBCF800252EEA /* EventsFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsFetcher.swift; sourceTree = "<group>"; };
 		423FC802248CE37300252EEA /* EventsListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsListViewModel.swift; sourceTree = "<group>"; };
 		423FC804248CE5DB00252EEA /* EventsListAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsListAssembly.swift; sourceTree = "<group>"; };
+		424423C5248D651B009E43E8 /* FetchEventsNetTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchEventsNetTask.swift; sourceTree = "<group>"; };
 		426DEF3924475EB50048EF49 /* Steve.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Steve.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		426DEF3C24475EB50048EF49 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		426DEF3E24475EB50048EF49 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -131,7 +131,6 @@
 			isa = PBXGroup;
 			children = (
 				423FC7FD248C0F4100252EEA /* Event.swift */,
-				423FC800248CBCF800252EEA /* EventsFetcher.swift */,
 			);
 			path = Events;
 			sourceTree = "<group>";
@@ -143,6 +142,14 @@
 				423FC7F8248C0EF800252EEA /* EventsRow.swift */,
 			);
 			path = EventsList;
+			sourceTree = "<group>";
+		};
+		424423C4248D64F0009E43E8 /* FetchEvents */ = {
+			isa = PBXGroup;
+			children = (
+				424423C5248D651B009E43E8 /* FetchEventsNetTask.swift */,
+			);
+			path = FetchEvents;
 			sourceTree = "<group>";
 		};
 		426DEF3024475EB50048EF49 = {
@@ -244,6 +251,7 @@
 		5671574B2465D4FF00C9BC0D /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				424423C4248D64F0009E43E8 /* FetchEvents */,
 				567157502465DB6400C9BC0D /* Protocols */,
 				5671574E2465D5EB00C9BC0D /* SendAuthenticationCodeNetTask.swift */,
 				567157532465DC7D00C9BC0D /* SendAuthenticationCodeNetTaskFactory.swift */,
@@ -530,9 +538,9 @@
 				563333672455004300CB72A1 /* UIColor.swift in Sources */,
 				567157582465EC2600C9BC0D /* AccountManageable.swift in Sources */,
 				5664DF8F2459984900797E30 /* LocationAssembly.swift in Sources */,
+				424423C6248D651B009E43E8 /* FetchEventsNetTask.swift in Sources */,
 				567157562465EA3200C9BC0D /* NetworkAssembly.swift in Sources */,
 				5633336C2455024F00CB72A1 /* AccountManager.swift in Sources */,
-				423FC801248CBCF800252EEA /* EventsFetcher.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

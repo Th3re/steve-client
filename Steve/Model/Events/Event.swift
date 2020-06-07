@@ -9,13 +9,6 @@
 import Foundation
 
 struct Event: Hashable, Identifiable, Codable {
-//    "end_time": "2020-06-03T23:00:00+0200",
-//    "html_link": "https://www.google.com/calendar/event?eid=NXJoOHEzcnBjMDhnMXFrcTdkMDRnN2tiMmkgcGVyc29uYS5waW90ckBnb29nbGVtYWlsLmNvbQ",
-//    "identifier": "5rh8q3rpc08g1qkq7d04g7kb2i",
-//    "location": "Starowiślna 87, 33-332 Kraków, Poland",
-//    "start_time": "2020-06-03T22:00:00+0200",
-//    "status": "confirmed",
-//    "summary": "Prev event"
     var id: String
     let summary: String
     let location: String
