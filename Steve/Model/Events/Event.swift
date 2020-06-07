@@ -26,4 +26,18 @@ struct Event: Hashable, Identifiable, Codable {
         case startTime = "start_time"
         case endTime = "end_time"
     }
+    
+    func parseDate(date: String) -> Date? {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "y-MM-d'T'HH:mm:ssZ"
+        return dateFormatter.date(from: date)
+    }
+    
+    func startTimeDate() -> Date {
+        return self.parseDate(date: self.startTime)!
+    }
+    
+    func endTimeDate() -> Date {
+        return self.parseDate(date: self.endTime)!
+    }
 }

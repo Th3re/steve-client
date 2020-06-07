@@ -11,12 +11,28 @@ import SwiftUI
 struct EventsRow: View {
     var event: Event
     
+    func eventTime(_ event: Event) -> String {
+        let eventStart = event.startTimeDate()
+        let eventEnd = event.endTimeDate()
+        
+        let startDateFormatter = DateFormatter()
+        startDateFormatter.dateFormat = "d MMM, HH:mm"
+        let start = startDateFormatter.string(from: eventStart)
+        
+        let endDateFormatter = DateFormatter()
+        endDateFormatter.dateFormat = "HH:mm"
+        let end = endDateFormatter.string(from: eventEnd)
+        return "\(start)-\(end)"
+    }
+    
     var body: some View {
-        HStack {
-            Text(event.startTime)
+        VStack(alignment: .leading) {
             Text(event.summary)
-                .font(.title)
-            
+            .font(.title)
+            Text(self.eventTime(event))
+            .font(.caption)
+            Text(event.location)
+            .font(.caption)
         }
     }
 }
@@ -33,6 +49,6 @@ var event = Event(
     location: "Starowiślna 87, 33-332 Kraków, Poland",
     htmlLink: "https://www.google.com/calendar/event?eid=NXJoOHEzcnBjMDhnMXFrcTdkMDRnN2tiMmkgcGVyc29uYS5waW90ckBnb29nbGVtYWlsLmNvbQ",
     status: "confirmed",
-    startTime: "2020-06-03T22:00:00+200",
+    startTime: "2020-06-03T21:00:00+0200",
     endTime: "2020-06-03T23:00:00+0200"
 )

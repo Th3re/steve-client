@@ -35,19 +35,19 @@ class EventsListViewModel: ObservableObject {
         let now = Date()
         let startTime = dateFormatter.string(from: now)
         let endTime = dateFormatter.string(from: self.endRangeInterval(start: now)!)
-        userInfoSubscription = self.accountManager
-            .publishers
-            .currentlyLogged
-            .receive(on: DispatchQueue.main)
-            .assign(to: \.userInfo, on: self)
+//        userInfoSubscription = self.accountManager
+//            .publishers
+//            .currentlyLogged
+//            .receive(on: DispatchQueue.main)
+//            .assign(to: \.userInfo, on: self)
         eventsTaskSubscription = FetchEventsNetTask(
             eventsAPIAddress: self.serverAddress,
-            userId: self.userInfo!.userId,
+            userId: "108032329945935107776",
             startTime: startTime,
             endTime: endTime
             )
             .publisher
-            .receive(on: )
+            .receive(on: DispatchQueue.main)
             .sink(receiveCompletion: { _ in
                 
             }) { (events) in
