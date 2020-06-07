@@ -9,11 +9,17 @@
 import SwiftUI
 
 struct EventsView: View {
+    @EnvironmentObject var viewModel: EventsListViewModel
+    
     var body: some View {
         NavigationView {
             ZStack {
                 Color.theme
-                Text("Place implementation of event list here").foregroundColor(.white)
+                List(viewModel.eventsList) { event in
+                    NavigationLink(destination: SelectParticipantsView()) {
+                        EventsRow(event: event)
+                    }
+                }
                 .navigationBarTitle("Events")
                 .navigationBarItems(trailing:
                     NavigationLink(destination: SelectParticipantsView()) {
