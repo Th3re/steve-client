@@ -12,7 +12,6 @@ import Foundation
 class EventsListViewModel: ObservableObject {
     @Published var eventsList: [Event] = []
     private var serverAddress: String
-    private var userInfo: UserInfo?
     private var eventsTaskSubscription: AnyCancellable?
     private var userInfoSubscription: AnyCancellable?
     private var accountManager: AccountManageable
@@ -35,24 +34,25 @@ class EventsListViewModel: ObservableObject {
         let now = Date()
         let startTime = dateFormatter.string(from: now)
         let endTime = dateFormatter.string(from: self.endRangeInterval(start: now)!)
-//        userInfoSubscription = self.accountManager
-//            .publishers
-//            .currentlyLogged
-//            .receive(on: DispatchQueue.main)
-//            .assign(to: \.userInfo, on: self)
-        eventsTaskSubscription = FetchEventsNetTask(
-            eventsAPIAddress: self.serverAddress,
-            userId: "108032329945935107776",
-            startTime: startTime,
-            endTime: endTime
-            )
-            .publisher
-            .receive(on: DispatchQueue.main)
-            .sink(receiveCompletion: { _ in
-                
-            }) { (events) in
-                self.eventsList = events
+        eventsTaskSubscription = accountManager.publishers.currentlyLogged.map { $0?.userId }.map {
+            if $0 != nil {
+                return FetchEventsNetTask(
+                    eventsAPIAddress: self.serverAddress,
+                    userId: $0!,
+                    startTime: startTime,
+                    endTime: endTime
+                    ).publisher
+                .eraseToAnyPublisher()
+                .receive(on: DispatchQueue.main)
+                .replaceError(with: [])
+                .assign(to: \.eventsList, on: self)
+            } else {
+                return Just([Event]())
+                    .eraseToAnyPublisher()
+                    .assign(to: \.eventsList, on: self)
             }
+        }
+        .receive(on: DispatchQueue.main).assign(to: \.userInfoSubscription, on: self)
     }
     
     deinit {
