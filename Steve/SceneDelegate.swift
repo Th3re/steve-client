@@ -23,10 +23,12 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         notificationManager = assembler.resolver.resolve(NotificationManager.self)!
         notificationManager?.requestAuthorization()
         locationUploader = assembler.resolver.resolve(LocationUploader.self)!
+        let environment = assembler.resolver.resolve(Environment.self)!
         let contentView = MainView()
             .environmentObject(UserDetailsViewModel(accountManager: accountManager))
             .environmentObject(AccountViewModel(accountManager: accountManager))
             .environmentObject(CurrentLocationViewModel(localizer: localizer))
+            .environmentObject(EventsListViewModel(serverAddress: environment.appConfig.serverAddress, accountManager: accountManager))
         if let windowScene = scene as? UIWindowScene {
             window = UIWindow(windowScene: windowScene)
             window?.rootViewController = UIHostingController(rootView: contentView)
