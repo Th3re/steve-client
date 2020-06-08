@@ -14,7 +14,6 @@ extension Assembler {
         return Assembler([EnvironmentAssembly(),
                           LocationAssembly(),
                           AccountAssembly(),
-                          NetworkAssembly(),
-                          EventsListAssembly()])
+                          NetworkAssembly()])
     }()
 }

@@ -11,7 +11,6 @@
 		423FC7F9248C0EF800252EEA /* EventsRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 423FC7F8248C0EF800252EEA /* EventsRow.swift */; };
 		423FC7FE248C0F4100252EEA /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 423FC7FD248C0F4100252EEA /* Event.swift */; };
 		423FC803248CE37300252EEA /* EventsListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 423FC802248CE37300252EEA /* EventsListViewModel.swift */; };
-		423FC805248CE5DB00252EEA /* EventsListAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 423FC804248CE5DB00252EEA /* EventsListAssembly.swift */; };
 		424423C6248D651B009E43E8 /* FetchEventsNetTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 424423C5248D651B009E43E8 /* FetchEventsNetTask.swift */; };
 		426DEF3D24475EB50048EF49 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 426DEF3C24475EB50048EF49 /* AppDelegate.swift */; };
 		426DEF3F24475EB50048EF49 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 426DEF3E24475EB50048EF49 /* SceneDelegate.swift */; };
@@ -61,7 +60,6 @@
 		423FC7F8248C0EF800252EEA /* EventsRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsRow.swift; sourceTree = "<group>"; };
 		423FC7FD248C0F4100252EEA /* Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
 		423FC802248CE37300252EEA /* EventsListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsListViewModel.swift; sourceTree = "<group>"; };
-		423FC804248CE5DB00252EEA /* EventsListAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsListAssembly.swift; sourceTree = "<group>"; };
 		424423C5248D651B009E43E8 /* FetchEventsNetTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchEventsNetTask.swift; sourceTree = "<group>"; };
 		426DEF3924475EB50048EF49 /* Steve.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Steve.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		426DEF3C24475EB50048EF49 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -243,7 +241,6 @@
 				5664DF8E2459984900797E30 /* LocationAssembly.swift */,
 				5664DF902459988A00797E30 /* AccountAssembly.swift */,
 				567157552465EA3200C9BC0D /* NetworkAssembly.swift */,
-				423FC804248CE5DB00252EEA /* EventsListAssembly.swift */,
 			);
 			path = Assemblies;
 			sourceTree = "<group>";
@@ -525,7 +522,6 @@
 				56CD65F324539A7C003CC631 /* Localizer.swift in Sources */,
 				56CD65FA24544464003CC631 /* CurrentLocationViewModel.swift in Sources */,
 				561024A624575B89008A4D7D /* LocationUploader.swift in Sources */,
-				423FC805248CE5DB00252EEA /* EventsListAssembly.swift in Sources */,
 				567157542465DC7D00C9BC0D /* SendAuthenticationCodeNetTaskFactory.swift in Sources */,
 				5664DF8A245993F800797E30 /* Assembler.swift in Sources */,
 				5664DF8D2459941900797E30 /* EnvironmentAssembly.swift in Sources */,
