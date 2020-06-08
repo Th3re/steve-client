@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>SERVER_ADDRESS</key>
-	<string>http://192.168.10.56:8888</string>
+	<string>http://localhost:8888</string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleExecutable</key>
