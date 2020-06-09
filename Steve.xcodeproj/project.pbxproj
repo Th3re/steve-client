@@ -71,6 +71,7 @@
 		56A232D6248EA64300AC48BF /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56A232D1248EA64300AC48BF /* Color.swift */; };
 		56A232DA248EAC5A00AC48BF /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56A232D9248EAC5A00AC48BF /* MapView.swift */; };
 		56A232DD248FAFFE00AC48BF /* WindowRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56A232DC248FAFFE00AC48BF /* WindowRowView.swift */; };
+		56A232DF248FC8D300AC48BF /* URLRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56A232DE248FC8D300AC48BF /* URLRequest.swift */; };
 		56C4A74D245482200026FC1A /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 56C4A74C245482200026FC1A /* Podfile */; };
 		6658EB91F553E6E0E9C04332 /* Pods_Steve.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3FCDB43A5AA773581747E6A2 /* Pods_Steve.framework */; };
 /* End PBXBuildFile section */
@@ -146,6 +147,7 @@
 		56A232D1248EA64300AC48BF /* Color.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		56A232D9248EAC5A00AC48BF /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 		56A232DC248FAFFE00AC48BF /* WindowRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindowRowView.swift; sourceTree = "<group>"; };
+		56A232DE248FC8D300AC48BF /* URLRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLRequest.swift; sourceTree = "<group>"; };
 		56C4A74C245482200026FC1A /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -463,6 +465,7 @@
 				56A232CF248EA64300AC48BF /* UIColor.swift */,
 				56A232D0248EA64300AC48BF /* DateFormatter.swift */,
 				56A232D1248EA64300AC48BF /* Color.swift */,
+				56A232DE248FC8D300AC48BF /* URLRequest.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -677,6 +680,7 @@
 				56A232BE248EA62E00AC48BF /* ProposeMeetingDateNetTaskFactory.swift in Sources */,
 				56A232B4248EA62E00AC48BF /* LocationUploader.swift in Sources */,
 				56A23289248EA60B00AC48BF /* UserDetailsViewModel.swift in Sources */,
+				56A232DF248FC8D300AC48BF /* URLRequest.swift in Sources */,
 				56A2327C248EA60B00AC48BF /* EventsView.swift in Sources */,
 				56A232C9248EA62E00AC48BF /* AccountManageable.swift in Sources */,
 				56A232BF248EA62E00AC48BF /* NetTask.swift in Sources */,
