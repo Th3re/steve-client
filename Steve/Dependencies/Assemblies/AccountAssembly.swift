@@ -12,8 +12,10 @@ struct AccountAssembly: Assembly {
     // MARK: - Assembly
     func assemble(container: Container) {
         container.register(AccountManageable.self) { resolver in
-            let netTaskFactory = resolver.resolve(SendAuthenticationCodeNetTaskFactory.self)!
-            return AccountManager(netTasksFactory: netTaskFactory)
+            let sendAuthenticationNetTaskFactory = resolver.resolve(SendAuthenticationCodeNetTaskFactory.self)!
+            let fetchContactsNetTaskFactory = resolver.resolve(FetchContactsNetTaskFactory.self)!
+            return AccountManager(sendAuthenticationNetTaskFactory: sendAuthenticationNetTaskFactory,
+                                  fetchContactsNetTaskFactory: fetchContactsNetTaskFactory)
         }.inObjectScope(.weak)
         container.register(NotificationManager.self) { resolver in
             let accountManager = resolver.resolve(AccountManageable.self)!

@@ -13,29 +13,42 @@ import Foundation
 class AccountManager: ObservableObject, AccountManageable {
     // MARK: - Properties
     var publishers: AccountPublishers { AccountPublishers(currentlyLogged: currentlyLoggedUser.eraseToAnyPublisher(),
-                                                          previouslyLogged: previouslyLoggedUser.eraseToAnyPublisher())
+                                                          previouslyLogged: previouslyLoggedUser.eraseToAnyPublisher(),
+                                                          contacts: contacts.eraseToAnyPublisher())
     }
     var signedUser: UserInfo? { currentlyLoggedUser.value }
     private let currentlyLoggedUser = CurrentValueSubject<UserInfo?, Never>(nil)
     private let previouslyLoggedUser = CurrentValueSubject<UserInfo?, Never>(nil)
-    private let netTasksFactory: SendAuthenticationCodeNetTaskFactory
-    private var networkTask: AnyCancellable?
+    private let contacts = CurrentValueSubject<[UserInfo]?, Never>(nil)
+    private let sendAuthenticationNetTaskFactory: SendAuthenticationCodeNetTaskFactory
+    private let fetchContactsNetTaskFactory: FetchContactsNetTaskFactory
+    private var sendAuthenticationNetworkTask: AnyCancellable?
+    private var fetchContactsNetworkTask: AnyCancellable?
     // MARK: - Initialization
-    init(netTasksFactory: SendAuthenticationCodeNetTaskFactory) {
-        self.netTasksFactory = netTasksFactory
+    init(sendAuthenticationNetTaskFactory: SendAuthenticationCodeNetTaskFactory, fetchContactsNetTaskFactory: FetchContactsNetTaskFactory) {
+        self.sendAuthenticationNetTaskFactory = sendAuthenticationNetTaskFactory
+        self.fetchContactsNetTaskFactory = fetchContactsNetTaskFactory
     }
     // MARK: - Internal
     func logOut() {
         changeUser(to: nil)
     }
     func logIn(with userInfo: UserInfo, code: String, completion: @escaping (Bool)->()) {
-        networkTask = netTasksFactory.build(with: .init(code: code))
+        sendAuthenticationNetworkTask = sendAuthenticationNetTaskFactory.build(with: .init(code: code))
             .publisher
             .receive(on: DispatchQueue.main)
             .sink(receiveCompletion: { error in
                 completion(false)
             }) { [weak self] data in
             self?.changeUser(to: userInfo)
+                self?.fetchContactsNetworkTask = self?.fetchContactsNetTaskFactory.build(with: .init(userId: userInfo.userId))
+               .publisher
+               .receive(on: DispatchQueue.main)
+               .sink(receiveCompletion: { _ in
+               }) { [weak self] data in
+                print("Contacts: \(data)")
+                self?.contacts.send(data)
+           }
             completion(true)
         }
     }
@@ -46,6 +59,7 @@ class AccountManager: ObservableObject, AccountManageable {
     }
     // MARK: - Deinitialization
     deinit {
-        networkTask?.cancel()
+        sendAuthenticationNetworkTask?.cancel()
+        fetchContactsNetworkTask?.cancel()
     }
 }

@@ -12,6 +12,7 @@ import Foundation
 struct AccountPublishers {
     var currentlyLogged: AnyPublisher<UserInfo?, Never>
     var previouslyLogged: AnyPublisher<UserInfo?, Never>
+    var contacts: AnyPublisher<[UserInfo]?, Never>
 }
 
 protocol AccountManageable {
