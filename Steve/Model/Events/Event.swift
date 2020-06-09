@@ -9,6 +9,7 @@
 import Foundation
 
 struct Event: Hashable, Identifiable, Codable {
+    // MARK: - Properties
     var id: String
     let summary: String?
     let location: String
@@ -16,7 +17,7 @@ struct Event: Hashable, Identifiable, Codable {
     let status: String
     let startTime: String
     let endTime: String
-
+    // MARK: - Definitions
     private enum CodingKeys: String, CodingKey {
         case id = "identifier"
         case summary
@@ -26,18 +27,17 @@ struct Event: Hashable, Identifiable, Codable {
         case startTime = "start_time"
         case endTime = "end_time"
     }
-    
-    func parseDate(date: String) -> Date? {
+    // MARK: - Private
+    private func parseDate(date: String) -> Date? {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "y-MM-d'T'HH:mm:ssZ"
         return dateFormatter.date(from: date)
     }
-    
+    // MARK: - Internal
     func startTimeDate() -> Date {
-        return self.parseDate(date: self.startTime)!
+        return parseDate(date: startTime)!
     }
-    
     func endTimeDate() -> Date {
-        return self.parseDate(date: self.endTime)!
+        return parseDate(date: endTime)!
     }
 }
