@@ -9,6 +9,7 @@
 import Foundation
 
 struct MeetingPointNetTaskConfig {
+    // MARK: - Properties
     let window: Window
     let host: String
     let participantIds: [String]
@@ -26,9 +27,6 @@ class MeetingPointNetTaskFactory: NetTaskFactory {
     }
     // MARK: - NetTaskFactory
     func build(with config: MeetingPointNetTaskConfig) -> MeetingPointNetTask {
-        return MeetingPointNetTask(serverAddress: serverAddress,
-                                   host: config.host,
-                                   participantIds: config.participantIds,
-                                   window: config.window)
+        return MeetingPointNetTask(serverAddress: serverAddress, config: config)
     }
 }

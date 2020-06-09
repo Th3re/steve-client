@@ -14,33 +14,27 @@ class CreateMeetingNetTask: NetTask {
     typealias DataType = Bool
     // MARK: - Properties
     private let serverAddress: String
-    private let host: String
-    private let participantIds: [String]
-    private let window: Window
-    private let summary: String
-    private let meetingPoint: String
+    private let config: CreateMeetingNetTaskConfig
     private var url: URL { URL(string: serverAddress + "/events/meeting/create")! }
     // MARK: - Initialization
-    init(serverAddress: String, host: String, participantIds: [String], window: Window, summary: String, meetingPoint: String) {
+    init(serverAddress: String, config: CreateMeetingNetTaskConfig) {
         self.serverAddress = serverAddress
-        self.host = host
-        self.participantIds = participantIds
-        self.window = window
-        self.summary = summary
-        self.meetingPoint = meetingPoint
+        self.config = config
+    }
+    // MARK: - Private
+    private func buildBody() -> [String: Any] {
+        return ["start": config.window.start.zonedRfc,
+                "end": config.window.end.zonedRfc,
+                "host": config.host,
+                "summary": config.summary,
+                "meetingPoint": config.meetingPoint,
+                "participants": config.participantIds] as [String : Any]
     }
     // MARK: - NetTask
     var publisher: AnyPublisher<Bool, Error> {
-        var request = URLRequest(url: url)
-        request.httpMethod = "post"
-        request.allHTTPHeaderFields?["Content-Type"] = "application/json"
-        let body = ["start": window.start.zonedRfc,
-                    "end": window.end.zonedRfc,
-                    "host": host,
-                    "summary": summary,
-                    "meetingPoint": meetingPoint,
-                    "participants": participantIds] as [String : Any]
-        request.httpBody = try! JSONSerialization.data(withJSONObject: body, options: .prettyPrinted)
+        let body = buildBody()
+        let data = try! JSONSerialization.data(withJSONObject: body, options: [])
+        let request = URLRequest.post(url: url, body: data)
         print("Creating meeting with body \(body)")
         return URLSession.DataTaskPublisher(request: request, session: .shared)
         .tryMap {

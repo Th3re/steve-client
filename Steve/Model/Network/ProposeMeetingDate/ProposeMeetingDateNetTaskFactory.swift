@@ -26,6 +26,6 @@ class ProposeMeetingDateNetTaskFactory: NetTaskFactory {
     }
     // MARK: - NetTaskFactory
     func build(with config: ProposeMeetingDateNetTaskConfig) -> ProposeMeetingDateNetTask {
-        return ProposeMeetingDateNetTask(serverAddress: serverAddress, participantIds: config.participantsIds, date: config.date)
+        return ProposeMeetingDateNetTask(serverAddress: serverAddress, config: config)
     }
 }

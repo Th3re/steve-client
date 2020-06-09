@@ -14,24 +14,22 @@ class ProposeMeetingDateNetTask: NetTask {
     typealias DataType = [Window]
     // MARK: - Properties
     private let serverAddress: String
-    private let participantIds: [String]
-    private let date: Date
+    private let config: ProposeMeetingDateNetTaskConfig
     private var url: URL { URL(string: serverAddress + "/events/meeting/date")! }
     // MARK: - Initialization
-    init(serverAddress: String, participantIds: [String], date: Date) {
+    init(serverAddress: String, config: ProposeMeetingDateNetTaskConfig) {
         self.serverAddress = serverAddress
-        self.participantIds = participantIds
-        self.date = date
+        self.config = config
+    }
+    // MARK: - Private
+    private func buildBody() -> [String: Any] {
+        return ["date": DateFormatter.yearMonthDay.string(from: config.date),
+                "participants": config.participantsIds]
     }
     // MARK: - NetTask
     var publisher: AnyPublisher<[Window], Error> {
-        var request = URLRequest(url: url)
-        request.httpMethod = "post"
-        let formatter = DateFormatter()
-        formatter.dateFormat = "yyyy-MM-dd"
-        request.allHTTPHeaderFields?["Content-Type"] = "application/json"
-        request.httpBody = try! JSONSerialization.data(withJSONObject: ["date": formatter.string(from: date),
-                                                                        "participants": participantIds], options: .prettyPrinted)
+        let data = try! JSONSerialization.data(withJSONObject: buildBody(), options: [])
+        let request = URLRequest.post(url: url, body: data)
         return URLSession.DataTaskPublisher(request: request, session: .shared)
         .tryMap {
             let object = try JSONSerialization.jsonObject(with: $0.data, options: []) as! [String: AnyObject]

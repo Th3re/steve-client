@@ -15,27 +15,24 @@ class MeetingPointNetTask: NetTask {
     typealias DataType = [Place]
     // MARK: - Properties
     private let serverAddress: String
-    private let host: String
-    private let participantIds: [String]
-    private let window: Window
+    private let config: MeetingPointNetTaskConfig
     private var url: URL { URL(string: serverAddress + "/events/meeting/point")! }
     // MARK: - Initialization
-    init(serverAddress: String, host: String, participantIds: [String], window: Window) {
+    init(serverAddress: String, config: MeetingPointNetTaskConfig) {
         self.serverAddress = serverAddress
-        self.host = host
-        self.participantIds = participantIds
-        self.window = window
+        self.config = config
+    }
+    // MARK: - Private
+    private func buildBody() -> [String : Any] {
+        return ["start": config.window.start.zonedRfc,
+                "end": config.window.end.zonedRfc,
+                "host": config.host,
+                "participants": config.participantIds] as [String : Any]
     }
     // MARK: - NetTask
     var publisher: AnyPublisher<[Place], Error> {
-        var request = URLRequest(url: url)
-        request.httpMethod = "post"
-        request.allHTTPHeaderFields?["Content-Type"] = "application/json"
-        let body = ["start": window.start.zonedRfc,
-                    "end": window.end.zonedRfc,
-                    "host": host,
-                    "participants": participantIds] as [String : Any]
-        request.httpBody = try! JSONSerialization.data(withJSONObject: body, options: .prettyPrinted)
+        let data = try! JSONSerialization.data(withJSONObject: buildBody(), options: .prettyPrinted)
+        let request = URLRequest.post(url: url, body: data)
         return URLSession.DataTaskPublisher(request: request, session: .shared)
         .tryMap {
             let object = try JSONSerialization.jsonObject(with: $0.data, options: []) as! [String: AnyObject]
