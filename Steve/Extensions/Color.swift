@@ -7,7 +7,6 @@
 //
 
 import SwiftUI
-import Foundation
 
 extension Color {
     static var theme: Color {
