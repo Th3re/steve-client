@@ -14,4 +14,9 @@ extension DateFormatter {
         formatter.dateFormat = dateFormat
         return formatter
     }
+    static var yearMonthDay: DateFormatter {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd"
+        return formatter
+    }
 }
